@@ -35,12 +35,12 @@ type Suggestion struct {
 
 var Suggestions []Suggestion
 
-func (n *Node) AutoSuggestions(word string) {
+func (n *Node) CollectSuggestions(word string) {
 	if n.Times != 0 {
 		Suggestions = append(Suggestions, Suggestion{Word: word, Times: n.Times})
 	}
 	for ch, n := range n.Children {
-		n.AutoSuggestions(word + string(ch))
+		n.CollectSuggestions(word + string(ch))
 	}
 }
 
@@ -55,5 +55,5 @@ func (t *Trie) AutoComplete(key string) {
 	}
 
 	// collect all words with key prefix
-	currentNode.AutoSuggestions(key)
+	currentNode.CollectSuggestions(key)
 }

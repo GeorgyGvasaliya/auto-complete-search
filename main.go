@@ -15,7 +15,6 @@ func PrintSuggestions(sl []Suggestion) {
 }
 
 func main() {
-	// набираем п в инкогнито яндекс браузере
 	//inputData := map[string]int{
 	//	"переводчик":                          12,
 	//	"почта россии отслеживание":           2,
@@ -28,18 +27,35 @@ func main() {
 	//	"почта маил": 6,
 	//}
 	inputData := map[string]int{
-		"переводчик": 1,
+		"league of legends": 3,
+		"learn javascript":  7,
+		"leaf":              1,
+		"leonardo dicaprio": 10,
+		"leonardo da vinci": 8,
 	}
+	//inputData := map[string]int{
+	//	"подарить машину тикток":   3,
+	//	"подари жизнь":             5,
+	//	"подарки на 23 февряля":    10,
+	//	"подарочный сертификат":    3,
+	//	"подарки мужчине":          4,
+	//	"подарки на день рождения": 5,
+	//	"подагра":                  1,
+	//	"подать заявление в загс":  1,
+	//}
+
+	key := "leonardo dicaprio" // user request
+
 	// init Trie
 	rootChildren := make(map[rune]*Node)
 	rootNode := &Node{Children: rootChildren}
 	t := Trie{Root: rootNode}
 
-	// insertionss
+	// insertions
 	t.InsertWords(inputData)
 
 	// driver func
-	t.AutoComplete("переводчик")
+	t.AutoComplete(key)
 	//t.AutoComplete("vqihfoehqc") // empty output
 
 	// ranking results
