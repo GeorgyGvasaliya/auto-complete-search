@@ -44,7 +44,7 @@ func main() {
 	//	"подать заявление в загс":  1,
 	//}
 
-	key := "leonardo dicaprio" // user request
+	userRequest := "leonardo dicaprio" // user request
 
 	// init Trie
 	rootChildren := make(map[rune]*Node)
@@ -55,7 +55,7 @@ func main() {
 	t.InsertWords(inputData)
 
 	// driver func
-	t.AutoComplete(key)
+	t.AutoComplete(userRequest)
 	//t.AutoComplete("vqihfoehqc") // empty output
 
 	// ranking results

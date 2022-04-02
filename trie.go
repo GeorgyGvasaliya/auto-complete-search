@@ -44,10 +44,10 @@ func (n *Node) CollectSuggestions(word string) {
 	}
 }
 
-func (t *Trie) AutoComplete(key string) {
+func (t *Trie) AutoComplete(userRequest string) {
 	// reach the end of key word
 	currentNode := t.Root
-	for _, v := range key {
+	for _, v := range userRequest {
 		if currentNode.Children[v] == nil {
 			return
 		}
@@ -55,5 +55,5 @@ func (t *Trie) AutoComplete(key string) {
 	}
 
 	// collect all words with key prefix
-	currentNode.CollectSuggestions(key)
+	currentNode.CollectSuggestions(userRequest)
 }
