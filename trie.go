@@ -48,7 +48,7 @@ func (t *Trie) AutoComplete(userRequest string) {
 	// reach the end of key word
 	currentNode := t.Root
 	for _, v := range userRequest {
-		if currentNode.Children[v] == nil {
+		if currentNode.Children[v] == nil { // no such prefix
 			return
 		}
 		currentNode = currentNode.Children[v]
