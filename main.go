@@ -15,25 +15,33 @@ func PrintSuggestions(sl []Suggestion) {
 }
 
 func main() {
-	//inputData := map[string]int{
+	//inputData := map[string]uint16{
 	//	"переводчик":                          12,
 	//	"почта россии отслеживание":           2,
 	//	"переводчик с английского на русский": 1,
-	//	"почта": 4,
-	//	"программа передач на сегодня": 9,
-	//	"погода":          7,
-	//	"погода в москве": 8,
-	//	"производственный календарь 2022": 5,
-	//	"почта маил": 6,
+	//	"почта":                               4,
+	//	"программа передач на сегодня":        9,
+	//	"погода":                              7,
+	//	"погода в москве":                     8,
+	//	"производственный календарь 2022":     5,
+	//	"почта маил":                          6,
 	//}
-	inputData := map[string]int{
-		"league of legends": 3,
-		"learn javascript":  7,
-		"leaf":              1,
-		"leonardo dicaprio": 10,
-		"leonardo da vinci": 8,
-	}
-	//inputData := map[string]int{
+	//inputData := map[string]uint16{
+	//	"league of legends": 3,
+	//	"learn javascript":  7,
+	//	"leaf":              1,
+	//	"leonardo dicaprio": 10,
+	//	"leonardo da vinci": 8,
+	//}
+	//inputData := map[string]uint16{
+	//	"how to search by image":          6,
+	//	"how to search for pdf on google": 12,
+	//	"how to search in telegram":       10,
+	//	"how to search in google":         20,
+	//	"how to search in google sheets":  9,
+	//	"how to search in google docs":    7,
+	//}
+	//inputData := map[string]uint16{
 	//	"подарить машину тикток":   3,
 	//	"подари жизнь":             5,
 	//	"подарки на 23 февряля":    10,
@@ -44,7 +52,8 @@ func main() {
 	//	"подать заявление в загс":  1,
 	//}
 
-	userRequest := "leonardo dicaprio" // user request
+	userRequest := "перев" // user request
+	//userRequest := "iuqdieqndiwqndiewqbfc" // -> no hints
 
 	// init Trie
 	rootChildren := make(map[rune]*Node)
@@ -56,7 +65,6 @@ func main() {
 
 	// driver func
 	t.AutoComplete(userRequest)
-	//t.AutoComplete("vqihfoehqc") // empty output
 
 	// ranking results
 	sort.Slice(Suggestions, func(i, j int) bool {
@@ -65,5 +73,4 @@ func main() {
 
 	// print answer
 	PrintSuggestions(Suggestions)
-
 }

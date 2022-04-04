@@ -2,16 +2,16 @@ package main
 
 type Node struct {
 	Children map[rune]*Node
-	Times    int // describe end of word with frequency
+	Times    uint16 // describe end of word with frequency
 }
 
 type Trie struct {
 	Root *Node
 }
 
-func (t *Trie) Insert(w string, freq int) {
+func (t *Trie) Insert(word string, freq uint16) {
 	currentNode := t.Root
-	for _, v := range w {
+	for _, v := range word {
 		if currentNode.Children[v] == nil {
 			node := make(map[rune]*Node)
 			currentNode.Children[v] = &Node{Children: node}
@@ -22,15 +22,15 @@ func (t *Trie) Insert(w string, freq int) {
 	currentNode.Times = freq
 }
 
-func (t *Trie) InsertWords(lookUp map[string]int) {
-	for k, v := range lookUp {
+func (t *Trie) InsertWords(inputData map[string]uint16) {
+	for k, v := range inputData {
 		t.Insert(k, v)
 	}
 }
 
 type Suggestion struct {
 	Word  string
-	Times int
+	Times uint16
 }
 
 var Suggestions []Suggestion
