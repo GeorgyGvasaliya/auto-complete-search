@@ -52,7 +52,7 @@ func main() {
 	//	"подать заявление в загс":  1,
 	//}
 
-	userRequest := "перев" // user request
+	userRequest := "перев"
 	//userRequest := "iuqdieqndiwqndiewqbfc" // -> no hints
 
 	// init Trie
